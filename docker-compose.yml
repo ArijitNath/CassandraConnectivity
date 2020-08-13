@@ -1,0 +1,16 @@
+version: '3'
+services: 
+    cassandraconnectivity:
+        build: 
+            context: .
+        image: 'cassandraconnectivity'
+        ports: 
+            - "8070:8070"
+        restart: always
+    cassandra:
+        image: 'cassandra'
+        ports:
+            - "9042:9042"
+            - "9160:9160"
+            - "7199:7199"
+        container_name: 'cassandra'

@@ -16,5 +16,7 @@ COPY $CASSANDRA_CONNECTIVITY_JAR $CC_APP_HOME/cassandraconnectivity.jar
 #Set Working Directory
 WORKDIR $CC_APP_HOME
 
+RUN apt update
+
 #Start Command
-ENTRYPOINT ["java","-jar","cassandraconnectivity.jar"]
+CMD ["mvn", "clean", "deploy"]

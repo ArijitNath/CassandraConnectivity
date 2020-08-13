@@ -1,0 +1,21 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - mvn clean deploy
+
+script:
+    - docker-compose up --build
+
+after_success:
+    #login to docker cli
+
+#    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+    # Take the prod images and pus to docker hub
+
+#    - docker push arijitnath92/multidocker-client
+#    - docker push arijitnath92/multidocker-nginx
+#    - docker push arijitnath92/multidocker-server
+#    - docker push arijitnath92/multidocker-worker

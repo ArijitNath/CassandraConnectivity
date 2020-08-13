@@ -10,18 +10,59 @@
 	</parent>
 	<groupId>org.midas.analytics</groupId>
 	<artifactId>cassandraconnectivity</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>cassandraconnectivity</name>
 	<description>Spring Boot app to host Cassandra DB</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+	<distributionManagement>
+	    <repository>
+	      <uniqueVersion>false</uniqueVersion>
+	      <id>cassandraconnectivity</id>
+	      <name>Login Application</name>
+	      <url>file://${PROJECT_HOME}/ApacheCassandra/target/</url>
+	      <layout>default</layout>
+	    </repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-cassandra</artifactId>
 		</dependency>
 
 		<dependency>

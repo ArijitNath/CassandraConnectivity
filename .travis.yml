@@ -17,6 +17,6 @@ script:
     - mvn clean install -B
     
 after_success:
-    - docker build -t arijitnath92/cassandraconnectivity .
+    - docker build -t arijitnath92/cassandraconnectivity:latest .
     - echo "$DOCKER_PASSWORD" | docker login  -u "$DOCKER_USERNAME" --password-stdin
     - docker push arijitnath92/cassandraconnectivity

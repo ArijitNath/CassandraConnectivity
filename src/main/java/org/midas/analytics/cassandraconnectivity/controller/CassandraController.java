@@ -3,7 +3,7 @@ package org.midas.analytics.cassandraconnectivity.controller;
 import java.util.List;
 
 import org.midas.analytics.cassandraconnectivity.model.LoginDetails;
-import org.midas.analytics.cassandraconnectivity.repositories.services.LoginService;
+import org.midas.analytics.cassandraconnectivity.repositories.services.CassandraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,25 +18,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class CassandraController {
 	
 	@Autowired
-	private LoginService loginService;
+	private CassandraService cassandraService;
 	
 	@GetMapping(value = "/user", produces = "application/json")
 	public List<LoginDetails> getAlluser() {
-		return loginService.getAllUser();
+		return cassandraService.getAllUser();
 	}
 	
 	@GetMapping(value = "/user/{id}", produces = "application/json")
 	public LoginDetails getUserByID( @PathVariable("id") String id ) {
-		return loginService.getUserByID(id);
+		return cassandraService.getUserByID(id);
 	}
 	
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	public LoginDetails addUser(@RequestBody LoginDetails loginDetails) {
-		return loginService.saveOrUpdate(loginDetails);
+		return cassandraService.saveOrUpdate(loginDetails);
 	}
 	
 	@DeleteMapping(value = "/delete")
 	public boolean deleteUser(@RequestBody LoginDetails loginDetails) {
-		return loginService.delete(loginDetails);
+		return cassandraService.delete(loginDetails);
 	}
 }

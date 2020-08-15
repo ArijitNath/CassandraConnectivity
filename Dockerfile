@@ -1,6 +1,9 @@
 #Base Image
 FROM openjdk:8-jdk-alpine
 
+# Add Maintainer Info
+LABEL maintainer="arijitnath92@gmail.com"
+
 #Port to expose
 EXPOSE 8070
 
@@ -17,4 +20,4 @@ COPY $CASSANDRA_CONNECTIVITY_JAR $CC_APP_HOME/cassandraconnectivity.jar
 WORKDIR $CC_APP_HOME
 
 #Start Command
-ENTRYPOINT ["java","-jar","cassandraconnectivity.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar","cassandraconnectivity.jar"]

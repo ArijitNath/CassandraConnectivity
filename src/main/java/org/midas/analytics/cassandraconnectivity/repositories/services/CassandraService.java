@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.midas.analytics.cassandraconnectivity.model.LoginDetails;
 
-public interface LoginService {
+public interface CassandraService {
 	List<LoginDetails> getAllUser();
 	LoginDetails getUserByID(String id);
 	LoginDetails saveOrUpdate(LoginDetails loginDetails);

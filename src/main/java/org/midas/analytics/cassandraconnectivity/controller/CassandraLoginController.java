@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("CassandraLoginController")
-@RequestMapping(value = "/cassandra")
+@RequestMapping(value = "/cassandra/login")
 public class CassandraLoginController implements CassandraLoginControllerService {
 	
 	@Autowired
 	@Qualifier("CassandraLoginControllerServiceImpl")
 	private CassandraLoginControllerService cassandraLoginControllerService ;
 	
-	@GetMapping(value = "/user", produces = "application/json")
+	@GetMapping(produces = "application/json")
 	public CassandraLoginResponse getAlluser() {
 		return cassandraLoginControllerService.getAlluser();
 	}
 	
-	@GetMapping(value = "/user/{id}", produces = "application/json")
+	@GetMapping(value = "/{id}", produces = "application/json")
 	public CassandraLoginResponse getUserByID( @PathVariable("id") String id ) {
 		return cassandraLoginControllerService.getUserByID(id);
 	}

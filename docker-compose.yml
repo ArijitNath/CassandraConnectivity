@@ -5,7 +5,7 @@ services:
             context: .
         image: 'cassandraconnectivity'
         ports: 
-            - "8070:8070"
+            - "3070:3070"
         restart: always
     cassandra:
         image: 'cassandra'
